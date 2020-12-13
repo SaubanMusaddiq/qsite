@@ -1,0 +1,133 @@
+<% title "Admin Panel" %>
+<% content_for :page_links do %>
+  <link href="/css/admin.css" rel="stylesheet">
+<!--   <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.3.0/css/perfect-scrollbar.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.3.0/perfect-scrollbar.js"></script> -->
+<% end %>
+<%= render "shared/admin_sidebar", page_id: "files" %>
+
+<section id="admin-content">
+    <div class="content-body container-fluid">
+    	<h3 class="admin-title">Files and Data</h3>
+    	<% if flash[:notice] %>
+    		<div class="file-alerts alert alert-success">
+  				<strong>Success!</strong> <%= flash[:notice] %>
+			</div>
+  		<% end %>
+  		<% if flash[:error] %>
+    		<div class="file-alerts alert alert-danger">
+  				<strong>Failed!</strong> <%= flash[:error] %>
+			</div>
+  		<% end %>
+			<!-- 	<%@all_chapters.each do |chap|%>
+				<div>
+					<div>#<%=chap.number%></div>
+					<div><%= link_to chap.title_en, chapter_path(chap.id) %></div>
+				</div>
+				<%end%> -->
+		<div class="table100 ver2">
+			<div class="table100-head">
+				<table>
+					<thead>
+						<tr class="head">
+							<th class="column1">No</th>
+							<th class="column2">Arabic</th>
+							<th class="column3">English</th>
+							<th class="column4">Kannada</th>
+							<th class="column5">Translation</th>
+							<th class="column6">Arabic Text</th>
+							<th class="column7">Kannada Text</th>
+							<th class="column8">Action</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="table100-body js-pscroll">
+				<table>
+					<tbody id="file-table">
+						<%@all_chapters.each do |chap|%>
+							<tr class="body trow" id="row-<%=chap.number%>">
+							<%= form_for :file, url: "/admin/file_save/:id", html: {class: "file-form"}  do |f| %>
+								<td class="column1">
+								<%= f.text_field  :ch_no, class: "hide", value: chap.number, id: "number-"+chap.number.to_s  %>
+									<span>
+										<%=chap.number%>
+									</span>
+								</td>
+								<td class="column2">
+									<span class="disp">
+										<%=chap.title_ar%>
+									</span>
+									<%= f.text_field  :title_ar, class: "edit", value: chap.title_ar, id: "title-ar-"+chap.number.to_s  %>
+								</td>
+								<td class="column3">
+									<span class="disp">
+										<%=chap.title_en%>
+									</span>
+									<%= f.text_field  :title_en, class: "edit", value: chap.title_en, id: "title-en-"+chap.number.to_s  %>
+								</td>
+								<td class="column4">
+									<span class="disp">
+										<%=chap.title_kn%>
+									</span>
+									<%= f.text_field  :title_kn, class: "edit", value: chap.title_kn, id: "title-kn-"+chap.number.to_s %>
+								</td>
+								<td class="column5">
+									<span class="disp">
+										<%=chap.title_trans_kn%>
+									</span>
+									<%= f.text_field  :title_trans_kn, class: "edit", value: chap.title_trans_kn, id: "title-trans-kn"+chap.number.to_s  %>
+								</td>
+								<td class="column6">
+									<button class="btn btn-primary disp">
+										<i class="fa fa-download"></i>
+										<%= link_to 'Download', url ='/admin/download_file_ar/'+chap.id.to_s %>
+									</button>
+									<%= f.file_field  :file_ar, class: "edit upload-btn",id: "file-ar-"+chap.number.to_s   %>
+								</td>
+								<td class="column7">
+									<button class="btn btn-primary disp">
+										<i class="fa fa-download"></i>
+										<%= link_to 'Download', url ='/admin/download_file_kn/'+chap.id.to_s %>
+									</button>
+									<%= f.file_field  :file_kn, class: "edit upload-btn",id: "file-kn-"+chap.number.to_s   %>
+
+								</td>
+								<td class="column8">
+									<button type="button" id= <%= "edit-btn-"+chap.number.to_s %> class="file-edit btn btn-info disp">Edit</button>
+									<%= f.submit "Save", class: "file-save btn btn-success edit", id: "save-btn-"+chap.number.to_s %>
+									<button type="button" id=<%= "cancel-btn-"+chap.number.to_s %> class="file-cancel btn btn-danger edit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+								</td>
+							<% end %>
+							</tr>
+						<%end%>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+$( document ).ready(function() {
+
+		// $('.js-pscroll').each(function(){
+		// 		var ps = new PerfectScrollbar(this);
+
+		// 		$(window).on('resize', function(){
+		// 			ps.update();
+		// 		})
+		// });
+		$("#file-table .file-edit").on("click",function(){
+			var row = $(this).closest(".trow");
+			row.toggleClass("edit-row");
+		});
+		$("#file-table .file-cancel").on("click",function(){
+			var row = $(this).closest(".trow");
+			row.toggleClass("edit-row");
+		});
+	});
+
+	$(".file-edit").click(function () {
+    	$(".overlay").show();
+	});
+</script>

@@ -1,0 +1,32 @@
+<% title @chapter.title_kn+" - "+@chapter.title_ar %>
+<div class="content-body container-fluid">
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="row" id="chapter-title">
+			<div class="col-xs-2">
+				<div class="title-eng"><%=@chapter.title_en%> (<%=@chapter.title_trans_en.capitalize%>)</div>
+			</div>
+			<div class="col-xs-8">
+				<div class="title-ar"><%=@chapter.title_ar%></div>
+				<div class="title-kn"><%=@chapter.number%>. <%=@chapter.title_kn%>(<%=@chapter.title_trans_kn%>)</div>
+			</div>
+		</div>
+		<div id="chapter-verses">
+		<%@verses.each do |verse|%>
+			<div class="verse row" id="verse-no-<%=verse.number%>">
+				<div class="col-md-1 col-sm-1">
+					<div class="verse-no"><%=@chapter.number%>:<%=verse.number%></div>
+				</div>
+				<div class="col-md-11 col-sm-11">
+					<div class="verse-content arabic"><%=verse.content%>  <span class="ayah-period">۞</span></div>
+					<div class="verse-translation"><%=verse.translation.content%></div>
+				 </div>
+			</div>
+			<%end%>
+		</div>
+		<div>
+			<%= link_to "Read Chapter", chapter_path(@chapter.id) %>
+		</div>
+	</div>
+</div>
+</div>

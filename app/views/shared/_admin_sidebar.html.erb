@@ -1,0 +1,60 @@
+<aside>
+  <div id="sidebar"  class="nav-collapse " data-turbolinks="false">
+      <!-- sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion">
+
+      	  <h3 class="centered admin">Admin Panel</h3>
+          <p class="centered"><a href="/admin">
+            <img src="/images/logo-lg-w.png" class="img-circle" width="60"></a>
+          </p>
+          <h5 class="centered"><%= @current_user.username%></h5>
+
+          <li class="mt sub-menu" id="dash">
+              <%if page_id == "dash"%>
+              <a class="active" href="/admin">
+              <%else%>
+              <a class="" href="/admin">
+              <%end%>
+                  <i class="fa fa-dashboard"></i>
+                  <span>Dashboard</span>
+              </a>
+          </li>
+
+          <li class="sub-menu" id="files">
+              <%if page_id == "files"%>
+              <a class="active" href="/admin/files">
+              <%else%>
+              <a class="" href="/admin/files">
+              <%end%>
+                  <i class="fa fa-book"></i>
+                  <span>Files &amp; data</span>
+              </a>
+          </li>
+
+          <li class="sub-menu" id="analytics">
+              <%if page_id == "analytics"%>
+                <a class="active" href="/admin/analytics">
+              <%else%>
+                <a class="" href="/admin/analytics">
+              <%end%>
+              <i class="fa fa-bar-chart-o"></i>
+                  <span>Analytics</span>
+              </a>
+              <!-- <ul class="sub">
+                  <li><a  href=""></a></li>
+              </ul> -->
+          </li>
+          <li class="sub-menu"  id="configs">
+              <%if page_id == "config"%>
+              <a class="active" href="/admin/configs">
+              <%else%>
+              <a class="" href="/admin/configs">
+              <%end%>
+                  <i class="fa fa-cogs"></i>
+                  <span>Configurations</span>
+              </a>
+          </li>
+      </ul>
+      <!-- sidebar menu end-->
+  </div>
+</aside>

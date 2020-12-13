@@ -1,0 +1,14 @@
+<% title "Index" %>
+<div class="content-body container-fluid">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div>Chapters</div>
+			<%@all_chapters.each do |chap|%>
+			<div>
+				<div>#<%=chap.number%></div>
+				<div><%= link_to chap.title_en, chapter_path(chap.id) %></div> 
+			</div>
+			<%end%>
+		</div>
+	</div>
+</div>

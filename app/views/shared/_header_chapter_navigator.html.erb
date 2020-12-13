@@ -1,0 +1,37 @@
+<div id="header-chapter-navigator">
+  <ul class="nav navbar-nav">
+    <li><a href="/" class="btn"><span class="glyphicon glyphicon-home"></span></a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="title-dd" ><%= @chapter.title_kn%></span> <span class="caret"></span></a>
+      <ul class="dropdown-menu chapter-dd">
+        <%@all_chapters.each do |chap|%>
+          <li class="<%="active" if chap.number == @chapter.number%>">
+            <a href="/<%=chap.number%>" role="menu-item" tabindex="-1">
+            <div class="row">
+              <div class="col-xs-1 col-md-1">
+                <span class="chapter-num"><%=chap.number%></span>
+              </div>
+              <div class="col-xs-6 col-md-6">
+                <span class="kannada-tl"><%=chap.title_kn%></span>
+                <br><span class="kannada-ts"><%=chap.title_trans_kn%></span>
+              </div>
+              <div class="col-xs-5  col-md-5">
+                <span class="arabic-title"><%=chap.title_ar%></span>
+                <br><span class="english-tl"><%=chap.title_en%></span>
+              </div>
+            </div>
+            </a>
+          </li>
+        <%end%>
+      </ul>
+    </li>
+    <li id="verse-dropdown" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verse<span class="caret"></span></a>
+      <ul class="dropdown-menu verse-dd">
+        <%@chapter.verse_count.times do |no|%>
+          <li class="verse-pointer"><a href="#verse-no-<%=no+1%>"><%=no+1%></a></li>
+        <%end%>
+      </ul>
+    </li>
+  </ul>
+</div>
