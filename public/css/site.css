@@ -384,6 +384,11 @@ input:checked + .slider:before {
 }
 
 #site-banner .welcome-banner{
+  background : url(/images/gold-bg-sm.jpg) no-repeat fixed;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
   width:100%;
   height:340px;
 }
@@ -414,7 +419,8 @@ input:checked + .slider:before {
     padding-top: 10px;
     padding-bottom: 10px;
     height: auto;
-    width: 100%;
+    /* width: 100%; */
+    width: 350px;
 }
 #site-banner .title{
     color: #DAA520;
@@ -466,6 +472,9 @@ icon-surah
   font-size: 25px;
 }
 
+#chapter-title .title-ar .icon-surah:before{
+  font-size: 40px;
+}
 #chapter-title .title-kn{
   text-align: center;
   font-size: 28px;

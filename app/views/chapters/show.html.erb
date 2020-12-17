@@ -10,7 +10,8 @@
 				<div class="title-eng"><%=@chapter.title_en%> (<%=@chapter.title_trans_en.capitalize%>)</div>
 			</div>
 			<div class="col-xs-12 col-sm-10">
-				<div class="title-ar"><%=@chapter.title_ar%></div>
+				<!-- <div class="title-ar"><%=@chapter.title_ar%></div> -->
+				<div class="title-ar"><span class="icon-surah icon-surah<%=@chapter.number%>"></span></div>
 				<div class="title-kn"><%=@chapter.number%>. <%=@chapter.title_kn%>(<%=@chapter.title_trans_kn%>)</div>
 			</div>
 		</div>
