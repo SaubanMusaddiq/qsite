@@ -63,13 +63,13 @@ module AdminHelper
 		ch= Chapter.find(chap_id)
 		lines =  (type=='ar'? ch.verses : ch.translations)
 		arr = data.split("\n")
-		(1..(arr.length-2)).each do |i|
-			words = arr[i+1].split(" ")
+		(1..(arr.length-1)).each do |i|
+			words = arr[i].split(" ")
 			words.shift()
 			line = lines.find_by_number(i)
 			if(line)
 				line.update_content(words.join(" "))
-			end	
+			end
 		end
 	end
 
