@@ -1,3 +1,7 @@
+/* Font Links */
+/* src: url('/arabic_fonts/PDMS_SALEEM_QURANFONTQESHIP_0.ttf') format("truetype"); */
+/* src: url('/arabic_fonts/UthmanicHafs1Ver09.ttf') format("truetype"); */
+/* https://islamicstudies.info/quran/arabic/fonts.htm */
 @font-face
 {
   font-family: 'PDMS_IslamicFont';
@@ -10,13 +14,19 @@
 
 @font-face
 {
+  font-family: al_qalam_font2;
+  font-style: normal;
+  font-weight: normal;
+  src: url('/arabic_fonts/Al_Qalam_Quran_Majeed2.ttf') format("truetype");
+  font-weight:400;font-style:normal;
+}
+
+/* @font-face
+{
   font-family: indo_pak_font1;
   font-style: normal;
   font-weight: normal;
   src: url('/arabic_fonts/MUHAMMADIBold.ttf') format("truetype");
-  /* src: url('/arabic_fonts/PDMS_SALEEM_QURANFONTQESHIP_0.ttf') format("truetype"); */
-  /* src: url('/arabic_fonts/UthmanicHafs1Ver09.ttf') format("truetype"); */
-  /* https://islamicstudies.info/quran/arabic/fonts.htm */
   font-weight:400;font-style:normal;
 }
 @font-face
@@ -51,14 +61,7 @@
   src: url('/arabic_fonts/Al_Qalam_Quran_Majeed1.ttf') format("truetype");
   font-weight:400;font-style:normal;
 }
-@font-face
-{
-  font-family: al_qalam_font2;
-  font-style: normal;
-  font-weight: normal;
-  src: url('/arabic_fonts/Al_Qalam_Quran_Majeed2.ttf') format("truetype");
-  font-weight:400;font-style:normal;
-}
+
 @font-face
 {
   font-family: al_qalam_quran_font;
@@ -66,7 +69,7 @@
   font-weight: normal;
   src: url('/arabic_fonts/AlQalamQuran.ttf') format("truetype");
   font-weight:400;font-style:normal;
-}
+} */
 
 @font-face{
   font-family: surah_names;
@@ -143,30 +146,10 @@ a:hover{
   line-height: 200%;
   font-weight: normal;
   font-style: normal;
-  font-family: PDMS_IslamicFont, _PDMS_IslamicFont, Tahoma, Arial;
+  font-family: al_qalam_font2, _PDMS_IslamicFont, Tahoma, Arial;
   font-size: 32px;
 }
-.chapter-2 .arabic{
-  font-family: al_qalam_font, _PDMS_IslamicFont, Tahoma, Arial;
-}
-.chapter-3 .arabic{
-  font-family: al_qalam_font1, _PDMS_IslamicFont, Tahoma, Arial;
-}
-.chapter-4 .arabic{
-  font-family: al_qalam_font2, _PDMS_IslamicFont, Tahoma, Arial;
-}
-.chapter-5 .arabic{
-  font-family: al_qalam_quran_font, _PDMS_IslamicFont, Tahoma, Arial;
-}
-.chapter-6 .arabic{
-  font-family: indo_pak_font1, _PDMS_IslamicFont, Tahoma, Arial;
-}
-.chapter-7 .arabic{
-  font-family: indo_pak_font2, _PDMS_IslamicFont, Tahoma, Arial;
-}
-.chapter-8 .arabic{
-  font-family: indo_pak_font3, _PDMS_IslamicFont, Tahoma, Arial;
-}
+
 .settings-panel-on .list-unstyled {
     padding-right: 5% !important;
 }

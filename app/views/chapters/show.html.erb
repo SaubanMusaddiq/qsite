@@ -30,7 +30,10 @@
 						<%= link_to "View", chapter_verse_path(@chapter.id,verse.number), class: "verse-btn"%>
 					</div>
 					<div class="col-md-11 col-sm-11">
-						<div class="verse-content arabic"><%=verse.content%> <span class="ayah-period">۞</span></div>
+						<div class="verse-content arabic"><%=verse.content%>
+							<span class="ayah-period">۞</span>
+							<span class="verse-content arabic">\u{FC00}</span>
+						</div>
 						<div class="verse-translation"><%=verse.translation.content%></div>
 					 </div>
 				</div>
