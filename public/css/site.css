@@ -69,8 +69,7 @@
   font-style: normal;
   font-weight: normal;
   src: url('/arabic_fonts/UthmanicHafs1Ver18.ttf') format("truetype");
-  font-weight:400;
-  font-style:normal;
+  font-weight:400;font-style:normal;
 
 }
 
@@ -121,6 +120,10 @@ body {
   font-family : Montserrat,sans-serif;
 }
 
+.container-fluid {
+    padding-right: 25px  !important;
+}
+
 .night-mode {
     background: #1d1f21;
     color: #fff
@@ -165,19 +168,35 @@ a:hover{
 }
 .list-unstyled {
     list-style: none;
-    padding-left: 80px;
-    padding-right: 120px;
+    /* padding-left: 40px;
+    padding-right: 120px; */
 }
 .list-unstyled > li{
     min-height: 72.8px;
 }
-@media only screen and (max-width: 801px) {
+@media only screen and (min-width: 1250px) {
+  .list-left {
+    padding-left: 70px;
+    padding-right: 110px;
+  }
+  .list-right {
+    padding-left: 110px;
+    padding-right: 70px;
+  }
+}
+@media only screen and (max-width: 1250px) {
   .list-unstyled {
     padding-left: 40px;
     padding-right: 40px;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 760px) {
+  .list-unstyled {
+      padding-left: 25px;
+      padding-right: 25px;
+  }
+}
+@media only screen and (max-width: 480px) {
   .list-unstyled {
       padding-left: 10px;
       padding-right: 10px;
@@ -457,22 +476,39 @@ input:checked + .slider:before {
 }
 
 #site-banner .welcome-banner{
-  background : url(/images/gold-bg-sm.jpg) no-repeat fixed;
-  -webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
-  -o-background-size: 100% 100%;
-  background-size: 100% 100%;
+  background : url(/images/gold-bg.jpg) no-repeat fixed;
+  -webkit-background-size: 100% 130%;
+  -moz-background-size: 100% 130%;
+  -o-background-size: 100% 130%;
+  background-size: 100% 130%;
   width:100%;
   height:340px;
 }
 @media only screen and (max-width: 1025px) {
   #site-banner .welcome-banner{
-    height:280px;
+    height:290px;
+    -webkit-background-size: 100% 110%;
+    -moz-background-size: 100% 110%;
+    -o-background-size: 100% 110%;
+    background-size: 100% 110%;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 770px) {
+  #site-banner .welcome-banner{
+    height:270px;
+    -webkit-background-size: 140% 100%;
+    -moz-background-size: 140% 100%;
+    -o-background-size: 140% 100%;
+    background-size: 140% 100%;
+  }
+}
+@media only screen and (max-width: 480px) {
   #site-banner .welcome-banner{
     height:220px;
+    -webkit-background-size: 200% 76%;
+    -moz-background-size: 200% 76%;
+    -o-background-size: 200% 76%;
+    background-size: 200% 76%;
   }
 }
 #site-banner .welcome-banner>.banner-layer{
@@ -484,7 +520,7 @@ input:checked + .slider:before {
     height: 100%;
 }
 #site-banner .logo{
-  width: 30%;
+  /* width: 30%; */
   margin-top: 35px;
   display: inline-block;
 }
@@ -494,6 +530,17 @@ input:checked + .slider:before {
     height: auto;
     /* width: 100%; */
     width: 350px;
+}
+
+@media only screen and (max-width: 1025px) {
+  #site-banner .logo>img{
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #site-banner .logo>img{
+    width:220px;
+  }
 }
 #site-banner .title{
     color: #DAA520;
