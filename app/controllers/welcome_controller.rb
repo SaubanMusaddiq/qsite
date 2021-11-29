@@ -10,7 +10,8 @@ class WelcomeController < ApplicationController
   end
 
   def info
-    file_name = "/home/sauban/campus/sites/qsite/qsite/qsite/public/text/Information.txt"
+    file_name =  File.join(File.dirname(__FILE__), "../assets/text/Information.txt")
+    puts(file_name)
     @lines = File.open(file_name,"r:UTF-16LE").map{|line| line.encode('utf-8')}
   end
 

@@ -5,6 +5,9 @@
 		<!-- <% content_for :chapter_navigator do %>
 			<%= render "shared/header_chapter_navigator" %>
 		<% end %> -->
+		<% content_for :title do %>
+			- <%=@chapter.title_kn%>
+		<% end %>
 		<div class="row" id="chapter-title">
 			<div class="col-xs-12 col-sm-2">
 				<div class="title-eng"><%=@chapter.title_en%> (<%=@chapter.title_trans_en.capitalize%>)</div>
