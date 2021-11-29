@@ -2,14 +2,14 @@
 <div class="content-body container-fluid">
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<% content_for :chapter_navigator do %>
+		<!-- <% content_for :chapter_navigator do %>
 			<%= render "shared/header_chapter_navigator" %>
-		<% end %>
+		<% end %> -->
 		<div class="row" id="chapter-title">
 			<div class="col-xs-12 col-sm-2">
 				<div class="title-eng"><%=@chapter.title_en%> (<%=@chapter.title_trans_en.capitalize%>)</div>
 			</div>
-			<div class="col-xs-12 col-sm-10">
+			<div class="col-xs-12 col-sm-8">
 				<!-- <div class="title-ar"><%=@chapter.title_ar%></div> -->
 				<div class="title-ar"><span class="icon-surah icon-surah<%=@chapter.number%>"></span></div>
 				<div class="title-kn"><%=@chapter.number%>. <%=@chapter.title_kn%>(<%=@chapter.title_trans_kn%>)</div>

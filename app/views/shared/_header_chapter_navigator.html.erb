@@ -25,13 +25,15 @@
         <%end%>
       </ul>
     </li>
-    <li id="verse-dropdown" class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verse<span class="caret"></span></a>
-      <ul class="dropdown-menu verse-dd">
-        <%@chapter.verse_count.times do |no|%>
-          <li class="verse-pointer"><a href="#verse-no-<%=no+1%>"><%=no+1%></a></li>
-        <%end%>
-      </ul>
-    </li>
+    <% if @show_verses_in_nav%>
+      <li id="verse-dropdown" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verse<span class="caret"></span></a>
+        <ul class="dropdown-menu verse-dd">
+          <%@chapter.verse_count.times do |no|%>
+            <li class="verse-pointer"><a href="#verse-no-<%=no+1%>"><%=no+1%></a></li>
+          <%end%>
+        </ul>
+      </li>
+    <% end %>
   </ul>
 </div>
