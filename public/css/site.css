@@ -221,6 +221,7 @@ margin: 0;
   width: 100%;
   border-radius: 0;
   z-index: 9999;
+  font-size: 19px;
 }
 #header .navbar .navbar-nav>li>a,#header .navbar  .navbar-brand {
     color: #fff;
@@ -246,6 +247,12 @@ margin: 0;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     width: 50px;
+}
+#header-logo-img{
+  height: auto;
+  width: 140px;
+  margin-top: -11px;
+  margim-left: 12px;
 }
 #page-content{
   position: relative;
@@ -475,40 +482,66 @@ input:checked + .slider:before {
   bottom: 110px;
 }
 
+
+/* Content page */
+
+.content-page-small{
+  max-width: 557px;
+}
+.content-page{
+  padding-top: 40px;
+  margin: auto;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.content-page p {
+    margin-bottom: 24px;
+    font-size: 24px;
+    width: 150%;
+    margin-left: -25%;
+}
+@media only screen and (max-width: 1025px) {
+  .content-page p {
+      width: 100%;
+      margin-left: 0;
+  }
+}
+
 #site-banner .welcome-banner{
-  background : url(/images/gold-bg.jpg) no-repeat fixed;
-  -webkit-background-size: 100% 130%;
-  -moz-background-size: 100% 130%;
-  -o-background-size: 100% 130%;
-  background-size: 100% 130%;
+  background : url(/images/LogoBackground.png) no-repeat fixed;
+  -webkit-background-size: 120% 80%;
+  -moz-background-size: 120% 80%;
+  -o-background-size: 120% 80%;
+  background-size: 120% 80%;
   width:100%;
   height:340px;
 }
 @media only screen and (max-width: 1025px) {
   #site-banner .welcome-banner{
     height:290px;
-    -webkit-background-size: 100% 110%;
-    -moz-background-size: 100% 110%;
-    -o-background-size: 100% 110%;
-    background-size: 100% 110%;
+    -webkit-background-size: 200% 80%;
+    -moz-background-size: 200% 80%;
+    -o-background-size: 200% 80%;
+    background-size: 200% 80%;
   }
 }
 @media only screen and (max-width: 770px) {
   #site-banner .welcome-banner{
     height:270px;
-    -webkit-background-size: 140% 100%;
-    -moz-background-size: 140% 100%;
-    -o-background-size: 140% 100%;
-    background-size: 140% 100%;
+    -webkit-background-size: 270% 75%;
+    -moz-background-size: 270% 75%;
+    -o-background-size: 270% 75%;
+    background-size: 270% 75%;
   }
 }
 @media only screen and (max-width: 480px) {
   #site-banner .welcome-banner{
     height:220px;
-    -webkit-background-size: 200% 76%;
-    -moz-background-size: 200% 76%;
-    -o-background-size: 200% 76%;
-    background-size: 200% 76%;
+    -webkit-background-size: 350% 70%;
+    -moz-background-size: 350% 70%;
+    -o-background-size: 350% 70%;
+    background-size: 350% 70%;
   }
 }
 #site-banner .welcome-banner>.banner-layer{
@@ -529,25 +562,30 @@ input:checked + .slider:before {
     padding-bottom: 10px;
     height: auto;
     /* width: 100%; */
-    width: 350px;
+    width: 600px;
 }
 
 @media only screen and (max-width: 1025px) {
   #site-banner .logo>img{
-    width: 300px;
+    width: 450px;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 770px) {
   #site-banner .logo>img{
-    width:220px;
+    width:400px;
   }
 }
+@media only screen and (max-width: 480px) {
+  #site-banner .logo>img{
+    width:310px;
+  }
+}
+
 #site-banner .title{
-    color: #DAA520;
+    color: #ba8d4f;
     font-size: 165%;
     padding-bottom: 3.5%;
     font-weight: bold;
-    text-shadow: 2px 2px #000;
 }
 /*-------Welcome Page------------------*/
 .chapter-list .chap-a{

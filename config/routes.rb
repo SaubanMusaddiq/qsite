@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # get 'chapters/:id/verses/:v_id1', to: "verses#show", as:"chapter_verse"
   # get 'chapters/:id/verses/:v_id1/:v_id2', to: "verses#show", as:"chapter_verses"
 
+  get '/intro', to: 'welcome#intro'
+  get '/info', to: 'welcome#info'
+  get '/publisher', to: 'welcome#publisher'
+
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   get    '/logout',  to: 'sessions#destroy'

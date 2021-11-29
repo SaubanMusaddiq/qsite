@@ -1,0 +1,13 @@
+<% content_for :chapter_navigator do %>
+  <%= render "shared/header_chapter_navigator" %>
+<% end %>
+<div class="content-body container-fluid">
+  <div class="row" id="chapter-title">
+    <div class="title-kn">ಮಾಹಿತಿಗಳು</div>
+  </div>
+  <div class="content-page content-page-small">
+    <% @lines.each do |line| %>
+      <p><%=line%></p>
+    <% end %>
+  </div>
+</div>
