@@ -141,4 +141,70 @@ $( document ).ready(function() {
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
     });
+
+		$(".verse-btn-share").on("click",function(){
+			if($(this).children().length>0){
+				$(".sharetastic").remove()
+				return
+			}
+			$(".sharetastic").remove()
+
+			d = $("<div>").attr("class","sharetastic sharetastic-custom")
+			$(this).append(d)
+    	url = "https://quran-kannada.herokuapp.com" + $(this).data("url");
+			title = $(this).data("title");
+			description = $(this).data("description");
+			$('.sharetastic').sharetastic({
+				services : {
+					"facebook" : {
+						order: 0,
+						name: 'Facebook',
+						href: 'https://www.facebook.com/sharer/sharer.php?u=' + url + '&title=' + title + '&description='+ description,
+						icon: {
+								width: 32,
+								height: 32,
+								id: 'sharetastic-facebook'
+						}
+					},
+          instagram: false,
+          twitter: {
+              order: 2,
+              name: 'Twitter',
+              href: 'https://twitter.com/intent/tweet?text=' + title +' - '+url,
+              icon: {
+                  width: 32,
+                  height: 32,
+                  id: 'sharetastic-twitter'
+              }
+          },
+          pinterest: false,
+          linkedin: false,
+          googleplus: false,
+          flickr: false,
+          tumblr: false,
+          email: {
+              order: 8,
+              name: 'Email',
+              href: 'mailto:?Body=' + title + '%0A' + description + '%0A' + url,
+              icon: {
+                  width: 32,
+                  height: 32,
+                  id: 'sharetastic-email'
+              }
+          },
+          whatsapp: {
+              order: 8,
+              name: 'WhatsApp',
+              href: 'https://api.whatsapp.com/send?text=' + title + ' - ' + description + ' ' + url,
+              icon: {
+                  width: 32,
+                  height: 32,
+                  id: 'sharetastic-whatsapp'
+              }
+          },
+          print: false
+				}
+			});
+		})
+
 });

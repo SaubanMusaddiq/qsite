@@ -16,6 +16,10 @@
 			<div class="verse row" id="verse-no-<%=verse.number%>">
 				<div class="col-md-1 col-sm-1">
 					<div class="verse-no"><%=@chapter.number%>:<%=verse.number%></div>
+					<a data-url="<%=chapter_verse_path(@chapter.id,verse.number)%>"
+						 data-title="<%=@chapter.title_kn%>:<%=verse.number%>"
+						 data-description="<%=verse.content.slice(0,30)%>..."
+						class="verse-btn verse-btn-share">Share</a>
 				</div>
 				<div class="col-md-11 col-sm-11">
 					<div class="verse-content arabic"><%=verse.content%>  <span class="ayah-period">۞</span></div>
@@ -30,3 +34,92 @@
 	</div>
 </div>
 </div>
+
+
+
+<script>
+$(document).ready(function() {
+  $(window).scroll(function(){
+      if ($(this).scrollTop() > 100) {
+          $('#back-to-top').fadeIn();
+      } else {
+          $('#back-to-top').fadeOut();
+      }
+      if($(this).scrollTop()+ $(this).innerHeight() >= $("#footer").offset().top) {
+          $('#back-to-top').addClass("stay");
+      }else{
+          $('#back-to-top').removeClass("stay");
+      }
+  });
+  $('#back-to-top').click(function(){
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return false;
+  });
+
+  $(".verse-btn-share").on("click",function(){
+    if($(this).children().length>0){
+      $(".sharetastic").remove()
+      return
+    }
+    $(".sharetastic").remove()
+
+    d = $("<div>").attr("class","sharetastic sharetastic-custom")
+    $(this).append(d)
+    url = "https://quran-kannada.herokuapp.com" + $(this).data("url");
+    title = $(this).data("title");
+    description = $(this).data("description");
+    $('.sharetastic').sharetastic({
+      services : {
+        "facebook" : {
+          order: 0,
+          name: 'Facebook',
+          href: 'https://www.facebook.com/sharer/sharer.php?u=' + url + '&title=' + title + '&description='+ description,
+          icon: {
+              width: 32,
+              height: 32,
+              id: 'sharetastic-facebook'
+          }
+        },
+        instagram: false,
+        twitter: {
+            order: 2,
+            name: 'Twitter',
+            href: 'https://twitter.com/intent/tweet?text=' + title +' - '+url,
+            icon: {
+                width: 32,
+                height: 32,
+                id: 'sharetastic-twitter'
+            }
+        },
+        pinterest: false,
+        linkedin: false,
+        googleplus: false,
+        flickr: false,
+        tumblr: false,
+        email: {
+            order: 8,
+            name: 'Email',
+            href: 'mailto:?Body=' + title + '%0A' + description + '%0A' + url,
+            icon: {
+                width: 32,
+                height: 32,
+                id: 'sharetastic-email'
+            }
+        },
+        whatsapp: {
+            order: 8,
+            name: 'WhatsApp',
+            href: 'https://api.whatsapp.com/send?text=' + title + ' - ' + description + ' ' + url,
+            icon: {
+                width: 32,
+                height: 32,
+                id: 'sharetastic-whatsapp'
+            }
+        },
+        print: false
+      }
+    });
+  })
+
+});
+</script>

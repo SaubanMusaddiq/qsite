@@ -607,7 +607,6 @@ input:checked + .slider:before {
   right: 10px;
 }
 icon-surah
-
 [class*=" icon-surah"], [class^=icon-surah] {
     font-family: surah_names!important;
     speak: none;
@@ -661,6 +660,9 @@ icon-surah
   #chapter-verses .verse-no{
     display: inline-block;
   }
+}
+.verse-btn-share{
+  cursor: pointer;
 }
 
 #chapter-verses .verse-translation{

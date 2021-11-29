@@ -5,8 +5,11 @@
     <title>Q - <%= yield(:title) %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Language" content="EN; AR" />
-    <meta data-react-helmet="true" name="keywords" content="quran, kannada,quran in kannada, kannada quran, koran, qur&#x27;an, kareem, قران, القرآن, قران كريم, القران الكريم, surah, yasin, yaseen, kahf, mulk, rahman, islam, Allah"/>
-
+    <meta data-react-helmet="true" name="keywords" content="quran, kannada,quran in kannada, kannada quran,Abdussalam Puthige qur&#x27;an, kareem, قران, القرآن, قران كريم, القران الكريم, surah, yasin, yaseen, kahf, mulk, rahman, islam, Allah"/>
+    <meta property="og:title" content="Quran in Kannada">
+    <meta property="og:description" content="Quran in Kannada"/>
+    <meta property="og:url" content="<%= request.original_url %>"/>
+    <meta property="og:image" content="https://quran-kannada.herokuapp.com/images/QuranKannadaLogoSmall.png"/>
     <title>Qrnsite</title>
 
     <%= csrf_meta_tags %>
@@ -22,6 +25,7 @@
 
         <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/sharetastic.css">
 
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <!--     <link rel="stylesheet" href="/css/slidebars.css">
@@ -33,6 +37,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- <script src="/js/slidebars.js"></script> -->
     <script src="/js/site.js"></script>
+    <script src="/js/sharetastic.js"></script>
   </head>
 
   <body>
@@ -78,12 +83,12 @@
                 </a>
               </li>
               <% end %>
-              <li>
+              <!-- <li>
                 <a class="" id="site-settings">
                   <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                   <span class=""><span>Settings</span></span>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -101,7 +106,7 @@
       <ul class="items">
           <li><a class="footer-1" href="#header">About-us</a></li>
           <li><a class="footer-2" href="#header">Contact-us</a></li>
-          <li><a class="footer-3" href="#header">Mobile App</a></li>
+          <li><a class="footer-3" href="https://play.google.com/store/apps/details?id=com.nzymic.kquran&hl=en_US&gl=US">Mobile App</a></li>
       </ul>
       <div id="cp-right">
       <p>© 2020 Quran In Kannada</p>
