@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 			chap.title_trans_kn = data[:title_trans_kn]
 			return false if !chap.save
 			if data[:file_kn]
-				File.open(data[:file_kn].path(), "r:UTF-16LE") do |f|
+				File.open(data[:file_kn].path(), "r:UTF-8") do |f|
 				  uploaded_file_kn = f.read
 					update_surahs chap.id, uploaded_file_kn, "kn"
 				end
