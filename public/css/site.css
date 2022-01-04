@@ -510,38 +510,49 @@ input:checked + .slider:before {
 
 #site-banner .welcome-banner{
   background : url(/images/LogoBackground.png) no-repeat fixed;
-  -webkit-background-size: 120% 80%;
-  -moz-background-size: 120% 80%;
-  -o-background-size: 120% 80%;
-  background-size: 120% 80%;
+  -webkit-background-size: 120% 87%;
+  -moz-background-size: 120% 87%;
+  -o-background-size: 120% 87%;
+  background-size: 120% 87%;
   width:100%;
   height:340px;
+}
+@media only screen and (max-width: 1255px) {
+  #site-banner .welcome-banner{
+    background : url(/images/LogoBackground.png) no-repeat fixed;
+    -webkit-background-size: 140% 80%;
+    -moz-background-size: 140% 80%;
+    -o-background-size: 140% 80%;
+    background-size: 140% 80%;
+    width:100%;
+    height:340px;
+  }
 }
 @media only screen and (max-width: 1025px) {
   #site-banner .welcome-banner{
     height:290px;
-    -webkit-background-size: 200% 80%;
-    -moz-background-size: 200% 80%;
-    -o-background-size: 200% 80%;
-    background-size: 200% 80%;
+    -webkit-background-size: 176% 76%;
+    -moz-background-size: 176% 76%;
+    -o-background-size: 176% 76%;
+    background-size: 176% 76%;
   }
 }
 @media only screen and (max-width: 770px) {
   #site-banner .welcome-banner{
     height:270px;
-    -webkit-background-size: 270% 75%;
-    -moz-background-size: 270% 75%;
-    -o-background-size: 270% 75%;
-    background-size: 270% 75%;
+    -webkit-background-size: 250% 68%;
+    -moz-background-size: 250% 68%;
+    -o-background-size: 250% 68%;
+    background-size: 250% 68%;
   }
 }
 @media only screen and (max-width: 480px) {
   #site-banner .welcome-banner{
-    height:220px;
-    -webkit-background-size: 350% 70%;
-    -moz-background-size: 350% 70%;
-    -o-background-size: 350% 70%;
-    background-size: 350% 70%;
+    height:242px;
+    -webkit-background-size: 300% 64%;
+    -moz-background-size: 300% 64%;
+    -o-background-size: 300% 64%;
+    background-size: 300% 64%;
   }
 }
 #site-banner .welcome-banner>.banner-layer{
@@ -584,7 +595,12 @@ input:checked + .slider:before {
 #site-banner .title{
     color: #ba8d4f;
     font-size: 165%;
-    padding-bottom: 3.5%;
+    padding-bottom: 0.4%;
+    font-weight: bold;
+}
+#site-banner .title-author{
+    color: #ba8d4f;
+    font-size: 145%;
     font-weight: bold;
 }
 /*-------Welcome Page------------------*/
