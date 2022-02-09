@@ -235,8 +235,14 @@ margin: 0;
     overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    width: 270px;
+    width: 315px;
 }
+@media only screen and (max-width: 760px) {
+  #header .chapter-dd{
+      width: 100%;
+  }
+}
+
 #header .chapter-dd .row>div{
   padding-right: 0;
 }
@@ -428,6 +434,12 @@ input:checked + .slider:before {
 }
 #footer .items li{
   display: inline;
+}
+@media only screen and (max-width: 550px) {
+  #footer .items li{
+    display: block;
+    padding-top: 5px;
+  }
 }
 #footer .items li>a:hover{
     color: #DAA520;
