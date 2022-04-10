@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/intro', to: 'welcome#intro'
   get '/info', to: 'welcome#info'
   get '/publisher', to: 'welcome#publisher'
+  get '/notes', to: 'welcome#notes'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

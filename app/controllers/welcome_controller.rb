@@ -18,4 +18,7 @@ class WelcomeController < ApplicationController
   def publisher
   end
 
+  def notes
+  end
+
 end
