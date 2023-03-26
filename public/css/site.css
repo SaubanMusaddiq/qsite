@@ -513,6 +513,13 @@ input:checked + .slider:before {
     width: 150%;
     margin-left: -25%;
 }
+
+.content-page-contact p {
+    margin-bottom: 4px;
+    font-size: 16px;
+    width: 150%;
+    margin-left: -25%;
+}
 @media only screen and (max-width: 1025px) {
   .content-page p {
       width: 100%;
