@@ -2,8 +2,9 @@ class WelcomeController < ApplicationController
   def index
   	@all_chapters = Chapter.all
   	# redirect_to url_for(controller: "chapters", action: "index")
-  	@first_half_chapters = Chapter.first_half
-  	@second_half_chapters = Chapter.second_half
+  	@first_third_chapters = Chapter.first_third
+  	@second_third_chapters = Chapter.second_third
+    @third_third_chapters = Chapter.third_third
   end
 
   def intro

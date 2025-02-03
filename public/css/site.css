@@ -21,7 +21,7 @@
   font-weight:400;font-style:normal;
 }
 
-/* @font-face
+@font-face
 {
   font-family: indo_pak_font1;
   font-style: normal;
@@ -53,7 +53,6 @@
   src: url('/arabic_fonts/Al_Qalam_Quran_Majeed1.ttf') format("truetype");
   font-weight:400;font-style:normal;
 }
-
 @font-face
 {
   font-family: al_qalam_quran_font;
@@ -61,7 +60,7 @@
   font-weight: normal;
   src: url('/arabic_fonts/AlQalamQuran.ttf') format("truetype");
   font-weight:400;font-style:normal;
-} */
+} 
 
 @font-face
 {
@@ -81,6 +80,13 @@
     url('/arabic_fonts/surah_names.woff') format("woff");
   font-weight:400;font-style:normal
   }
+
+  @font-face{
+  font-family: surah_names_2;
+  src:url('/arabic_fonts/sura_names.woff2') format("woff2");
+  font-weight:400;font-style:normal
+  }
+
 
   @font-face{
     font-family: bismillah;
@@ -137,12 +143,14 @@ body {
     color: #fff
 }
 
+.ayah-period{padding: 0 7px;}
+
 a {
-    color: #8B4513;
+    color: #090600;
     text-decoration: none;
 }
 a:hover{
-    color: #DAA520;
+    color: #c19967;
     text-decoration: none;
 }
 .arabic{
@@ -152,8 +160,9 @@ a:hover{
   line-height: 200%;
   font-weight: normal;
   font-style: normal;
-  font-family: al_qalam_font2, _PDMS_IslamicFont, Tahoma, Arial;
+  font-family: al_qalam_font, _PDMS_IslamicFont, Tahoma, Arial;
   font-size: 32px;
+  color: #555;
 }
 
 .verse-number{
@@ -173,15 +182,35 @@ a:hover{
 }
 .list-unstyled > li{
     min-height: 72.8px;
+        border: 1px solid #eceef0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
+
+/*.list-unstyled > li:hover{
+    font-size: 18px;
+}*/
+
+.list-unstyled > li:hover {
+  overflow: hidden; /* Prevents overflow when scaling */
+}
+
+.list-unstyled > li:hover span {
+  display: inline-block; /* Ensures proper scaling of inline text */
+  transform: scale(1.1); /* Scales the text */
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
 @media only screen and (min-width: 1250px) {
   .list-left {
-    padding-left: 70px;
-    padding-right: 110px;
+            padding-left: 85px;
+        padding-right: 55px;
   }
   .list-right {
-    padding-left: 110px;
-    padding-right: 70px;
+            padding-left: 85px;
+        padding-right: 55px;
   }
 }
 @media only screen and (max-width: 1250px) {
@@ -205,8 +234,10 @@ a:hover{
 
 .line-text{
 padding: 20px 0;
-    font-size: 14px;
+    font-size: 22px;
     margin-top: 20px;
+    text-align: center;
+
 }
 .line-text>span{
 margin: 0;
@@ -214,29 +245,57 @@ margin: 0;
 }
 
 /*-----------------------------------------*/
-#header .navbar{
-  background-color: #0f0f0f;
-  border-color: #141517;
+#header{
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 8px; 
+  z-index: 1000;
+}
+#header .navbar-chapter{
   position: fixed;
+  top: 10px;
+}
+
+
+#header .navbar{
+  background-color: #86c3c8;
+  border-color: #7abfca;
   width: 100%;
   border-radius: 0;
   z-index: 9999;
   font-size: 19px;
 }
 #header .navbar .navbar-nav>li>a,#header .navbar  .navbar-brand {
-    color: #fff;
+    padding: 3px;
+    color: #000000;
 }
 #header .navbar .navbar-nav>li>a:hover,#header .navbar  .navbar-brand:hover{
-    color: #DAA520;
+    color: #fff;
 }
 #header .chapter-dd{
-    max-height: 400px;
+    max-height: 420px;
     max-height: 60vh;
     overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    width: 315px;
+    width: 420px;
+    font-size: 18px;
 }
+
+#header .chapter-dd a{
+  padding: 5px 20px;
+  font-size: 14px;
+  color: #000;
+  border-radius: 12px;
+  margin-top:10px ;
+}
+
+
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  background-color: #8dcbd4;
+}
+
 @media only screen and (max-width: 760px) {
   #header .chapter-dd{
       width: 100%;
@@ -254,16 +313,15 @@ margin: 0;
     -webkit-overflow-scrolling: touch;
     width: 50px;
 }
-#header-logo-img{
-  height: auto;
-  width: 140px;
-  margin-top: -11px;
-  margin-left: 12px;
-}
+
 #page-content{
   position: relative;
-  top: 50px;
+/*  top: 50px;*/
   padding-bottom: 65px;
+}
+
+.chapter-content{
+  padding-top: 50px;
 }
 
 @media only screen and (min-width: 1025px) {
@@ -272,6 +330,50 @@ margin: 0;
       left: 0px;
       transition: right 1s;
   }
+}
+
+.navbar-icon-left{
+  height: 40px; /* Adjust image height */
+  width: auto;  /* Maintain aspect ratio */
+  float: left;
+}
+.navbar-icon-right{
+/*      height: 0px;
+    width: auto;
+    float: right;*/
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+}
+
+/*.navbar-custom{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}*/
+
+
+.chapter-navigator{
+  margin-top: 50px;
+    border: none;
+}
+
+
+@media only screen and (min-width: 760px) {
+  .chapter-navigator{
+  margin: 0 auto  !important;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+}
+}
+
+.chapter-num{
+  font-size: 12px;
+  background-color: #d6ebec;
 }
 
 
@@ -423,7 +525,7 @@ input:checked + .slider:before {
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  background-color: #32312c;
+  background-color: #86c4c8;
   padding: 2% 0 1%;
   font-size: 14px;
   margin-top: 50px;
@@ -442,7 +544,7 @@ input:checked + .slider:before {
   }
 }
 #footer .items li>a:hover{
-    color: #DAA520;
+    color: #e2bd86;
 }
 #footer .items li>a{
     color: #fff;
@@ -450,26 +552,42 @@ input:checked + .slider:before {
     padding: 25px;
 }
 #cp-right{
-  color: #939598;
+  color: #000;
   text-align: center;
   font-size: 15px;
+}
+
+#chapter-dropdown{
+  display: inline-block; /* Ensure both elements are inline */
+  vertical-align: middle; /* Align them vertically */
+  margin-right: 20px;
+}
+#verse-dropdown{
+  margin-left: 55px;
+}
+
+@media only screen and (min-width: 760px) {
+  #verse-dropdown{
+    margin-left:10px;
+  }
 }
 
 
 /*back to top*/
 #back-to-top {
     position:fixed;
-    right:10px;
+    right:15px;
     bottom:10px;
     cursor:pointer;
-    width:50px;
-    height:50px;
-    background-color:#0f0f0f;
+    width:56px;
+    height:36px;
+    background-color:#d6ebec;
     text-indent:-9999px;
     display:none;
     -webkit-border-radius:60px;
     -moz-border-radius:60px;
-    border-radius:60px
+    border-radius:20px;
+    border: 2px solid #86c4c8
 }
 #back-to-top span {
     position:absolute;
@@ -480,18 +598,21 @@ input:checked + .slider:before {
     height:0;
     width:0;
     border:8px solid transparent;
-    border-bottom-color:#ffffff;
+    border-bottom-color:#86c4c8;
+}
+#back-to-top:hover span{
+  border-bottom-color:#fff;
 }
 #back-to-top:hover {
-    background-color:#DAA520;
+    background-color:#86c4c8;
     opacity:1;filter:"alpha(opacity=100)";
     -ms-filter:"alpha(opacity=100)";
-    border: 2px solid #B8860B
+    border: 2px solid #33b6c0
 }
 
 #back-to-top.stay{
   position: absolute;
-  bottom: 110px;
+  bottom: 120px;
 }
 
 
@@ -527,55 +648,136 @@ input:checked + .slider:before {
   }
 }
 
-#site-banner .welcome-banner{
-  background : url(/images/LogoBackground.png) no-repeat fixed;
-  -webkit-background-size: 120% 87%;
-  -moz-background-size: 120% 87%;
-  -o-background-size: 120% 87%;
-  background-size: 120% 87%;
+#site-banner{
+  background : url(/images/bgdq.png) no-repeat;
   width:100%;
-  height:340px;
+  height:240px;
+   background-size: cover;
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: -200px; 
+  z-index: 1000;
 }
+
+#chapter-banner{
+  background : url(/images/bgdq.png) no-repeat;
+  width:100%;
+  height:10px;
+   background-size: cover;
+/*  position: -webkit-sticky; */
+  position: fixed;
+  top: 0px; 
+  z-index: 1000;
+}
+
+#header-logo-img{
+  height: auto;
+  width: 200px;
+}
+
+#header-logo-img-2{
+  height: auto;
+  width: 115px;
+/*  margin-top: -11px;
+  margin-left: 12px;*/
+}
+
+#navbar-button{
+  margin-left: 25px;
+  float: left;
+}
+
+/*#navbar-button + a {
+  display: none;
+}*/
+#navbar-button.collapsed + a {  /*header-logo-img*/
+  display: block;
+}
+
+
 @media only screen and (max-width: 1255px) {
-  #site-banner .welcome-banner{
-    background : url(/images/LogoBackground.png) no-repeat fixed;
-    -webkit-background-size: 140% 80%;
-    -moz-background-size: 140% 80%;
-    -o-background-size: 140% 80%;
-    background-size: 140% 80%;
-    width:100%;
+  #site-banner {
+    background : url(/images/bgdq.png) no-repeat;
+    -webkit-background-size: 131% 48%;
+    -moz-background-size: 131% 48%;
+    -o-background-size: 131% 48%;
+    background-size: 131% 48%;
+    width:146%;
     height:340px;
+     background-size: cover;
+        margin-left: -45%;
+    margin-bottom: -4%;   
+        position: sticky;
+    top: -282px; 
+  }
+  #chapter-banner {
+    width:150%;
+  }
+  #header-logo-img-2{
+    width: 90px;
   }
 }
 @media only screen and (max-width: 1025px) {
-  #site-banner .welcome-banner{
+  #site-banner {
     height:290px;
-    -webkit-background-size: 176% 76%;
-    -moz-background-size: 176% 76%;
-    -o-background-size: 176% 76%;
-    background-size: 176% 76%;
+    -webkit-background-size: 131% 89%;
+    -moz-background-size: 131% 89%;
+    -o-background-size: 131% 89%;
+    background-size: 131% 89%;
+    margin-bottom: -7.5%;  
+        position: sticky;
+    top: -201px;
+  }
+  #chapter-banner {
+    width:150%;
+  }
+  #header-logo-img-2{
+    width: 80px;
+    margin-top: 13px;
+    margin-right: -10px;
   }
 }
 @media only screen and (max-width: 770px) {
-  #site-banner .welcome-banner{
-    height:270px;
-    -webkit-background-size: 250% 68%;
-    -moz-background-size: 250% 68%;
-    -o-background-size: 250% 68%;
-    background-size: 250% 68%;
+  #site-banner{
+    height:250px;
+    -webkit-background-size: 127% 78%;
+    -moz-background-size: 127% 78%;
+    -o-background-size: 127% 78%;
+    background-size: 127% 78%;
+    margin-bottom: -7.5%; 
+    position: sticky;
+    top: -137x;
+  }
+  #chapter-banner {
+    width:150%;
+  }
+  #header-logo-img-2{
+    width: 75px;
+    margin-top: 13px;
+    margin-right: -20px;
+
   }
 }
 @media only screen and (max-width: 480px) {
-  #site-banner .welcome-banner{
+  #site-banner {
     height:242px;
-    -webkit-background-size: 300% 64%;
-    -moz-background-size: 300% 64%;
-    -o-background-size: 300% 64%;
-    background-size: 300% 64%;
+    -webkit-background-size: 131% 48%;
+    -moz-background-size: 131% 48%;
+    -o-background-size: 131% 48%;
+    background-size: 131% 48%;
+    width:146%;
+    margin-bottom: -36.5%; 
+        position: sticky;
+    top: -84px;
+  }
+  #chapter-banner {
+    width:158%;
+  }
+  #header-logo-img-2{
+    display: none;
   }
 }
-#site-banner .welcome-banner>.banner-layer{
-  background-color: #33333370;
+#site-banner>.banner-layer{
     /*position: absolute;*/
     top: 0;
     left: 0;
@@ -643,17 +845,33 @@ input:checked + .slider:before {
 }
 icon-surah
 [class*=" icon-surah"], [class^=icon-surah] {
-    font-family: surah_names!important;
+    font-family: surah_names_2!important;
     speak: none;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    font-size: 25px;
+    font-size: 55px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+home-surah
+[class*=" home-surah"], [class^=home-surah] {
+    font-family: surah_names_2!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 33px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    float: right;
+}
+
 /*----------chapter page-------------*/
 #chapter-title{
   margin: 26px 20px 2px 20px;
@@ -669,25 +887,51 @@ icon-surah
 }
 #chapter-title .title-kn{
   text-align: center;
-  font-size: 28px;
+  font-size: 20px;
 }
 
 #chapter-verses .verse{
-  padding: 2.5% 0;
-  border-bottom: 1px solid hsla(0,1%,82%,.5);
+  padding: 1.5% 2%;
+/*  border-bottom:1px solid hsl(183.64deg 25% 65.49% / 35%);*/
+
 }
+.note-parent {
+  padding: 1.5% 0;
+  border-top:1px solid hsl(183.64deg 25% 65.49% / 35%);
+}
+
+#chapter-verses .verse-parent{
+  padding: 1.5% 0;
+  border-bottom:2px solid hsl(183.64deg 37.5% 65.49% / 35%);
+
+}
+
 #chapter-verses .verse-btn{
   display: block;
 }
+
 #chapter-verses .verse-no{
   display: block;
   padding: 0.11em 1em;
   margin-bottom: 14px;
   font-weight: 400;
   color: #333;
-  background-color: #f2f2f2;
+  background-color: #d6ebec;
   text-align: center;
 }
+.note-number{
+      padding: 0.11em 1em;
+    font-size: 80%;
+    font-weight: 400;
+    color: #333;
+    background-color: #d6ebec;
+    text-align: center;
+}
+.note-link{
+  font-size: 135%;
+    color: #38c0c9;
+}
+
 @media (max-width: 767px){
   #chapter-verses .verse-btn{
     display: inline-block;
@@ -702,6 +946,18 @@ icon-surah
 
 #chapter-verses .verse-translation{
   font-size: 145%;
+  font-family: 'Baloo Tamma 2',cursive;
+  font-weight: 420;
+  color: #000;
+  padding-top: 1.5%;
+}
+
+#chapter-verses .verse-notes{
+  font-size: 135%;
+  font-family: 'Noto-Sans-Kannada' ,Arial,Helvetica,sans-serif;
+  font-weight: 420;
+  color: #333;
+  padding-bottom: 15px
 }
 
 #bismillah {
@@ -724,7 +980,7 @@ text-align: center;
     to{ opacity: 1; }
 }
 
-
+/*
 .icon-surah1:before {content: "\E904";}
 .icon-surah59:before{content:"\E900"}
 .icon-surah60:before{content:"\E901"}
@@ -841,4 +1097,5 @@ text-align: center;
 .icon-surah112:before{content:"\E970"}
 .icon-surah113:before{content:"\E971"}
 .icon-surah114:before{content:"\E972"}
-/*------------*/
+/*------------
+*/

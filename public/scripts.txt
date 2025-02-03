@@ -1,0 +1,25 @@
+
+allowed_numbers = [1, 10, 12, 14]
+c.translations.count.times do |i|
+  verse = c.translations.find_by_number(i+1)
+  verse.destroy unless allowed_numbers.include?(verse.number)
+  puts verse.number
+  verse.save
+end
+
+
+
+
+
+
+n = Note.new(
+  content: "    ನರಕ ಶಿಕ್ಷೆಯಿಂದ ಪ್ರತ್ಯೇಕವಾಗಿ ಬೆಂಕಿಯ ಶಿಕ್ಷೆಯನ್ನು ಪ್ರಸ್ತಾಪಿಸಲು, ಅವರು ಮರ್ದಿತರನ್ನು ಅಗ್ನಿ ಕುಂಡಗಳಿಗೆಸೆದು ಕೊಂದಿರುವುದೇ ಕಾರಣ. ಈ ಬೆಂಕಿಯು ನರಕಾಗ್ನಿಗಿಂತ ತೀವ್ರವಾದ ಬೆಂಕಿಯಾಗಿರಬಹುದು. ಅದರಲ್ಲಿ ಅವರು ಉರಿಸಲ್ಪಡುವರು.",
+  chapter_id: 85,
+  number: 6,
+  verse_no: 10
+)
+n.save
+
+
+
+ mysql -u root -pquranroot dqsite_dev < dqtemp_old.sql
