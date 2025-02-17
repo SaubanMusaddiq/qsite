@@ -11,7 +11,7 @@ class ChaptersController < ApplicationController
 
   def format_note_links(content)
     content.gsub(/\d{1,3}/) do |num|
-      "<sup><a href='#note-no-#{num}' class='note-link'>#{num}</a></sup>"
+      "<sup><a class='note-link' onclick=\"showModalContent(#{num})\">#{num}</a></sup>"
     end.html_safe
   end
 end

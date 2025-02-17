@@ -38,7 +38,7 @@
     <%= yield :page_links %>
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     <!-- <script src="/js/slidebars.js"></script> -->
     <script src="/js/site.js"></script>
     <script src="/js/sharetastic.js"></script>
@@ -54,14 +54,29 @@
     <div>
       <a href="#" id="back-to-top" style="display: none;" title="Back to Top"><span></span></a>
     </div>
-    <div id="footer">
-      <ul class="items">
-          <li><a class="footer-3" href="https://play.google.com/store/apps/details?id=com.nzymic.quran&hl=en_US">Mobile App</a></li>
-      </ul>
+    <div id="footer" class="row text-center">
+      <div id="footer-sp" class="col-xs-12 col-sm-12 col-md-6 col-lg-5 left-div text-white">
+         <div class="row">
+          <div class="col-xs-4">
+            <%= link_to image_tag("/images/sp.png", border: 0, id: "footer-logo"), "/",{class: "", "data-turbolinks": "false"} %>
+          </div>  
+          <div class="col-xs-7 mt-4">
+              <p class="sp">ಶಾಂತಿ ಪ್ರಕಾಶನ</p>
+              <p class="address"><span class="glyphicon glyphicon-map-marker text-danger"></span> Sahakari Sadana, Mission St, Uppinagadi Village, Mangaluru, Karnataka 575001</p>
+              <p class="address"><span class="glyphicon glyphicon-envelope text-danger"></span> spkarnataka@gmail.com</p>
+              <p class="address"><span class="glyphicon glyphicon-earphone text-danger"></span> +91 94486 96490</p>
+          </div>
+        </div>
+      </div> 
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 center-div">
+        <ul class="items">
+            <li><a class="footer-3" href="https://play.google.com/store/apps/details?id=com.nzymic.quran&hl=en_US">Mobile App</a></li>
+        </ul>
 
-      <div id="cp-right">
-      <p>© Divya Quran - ದಿವ್ಯ ಕುರ್‍ಆನ್</p>
-      </div>
+        <div id="cp-right">
+        <p>© Divya Quran - ದಿವ್ಯ ಕುರ್‍ಆನ್</p>
+        </div>
+      </div>  
     </div>
     <%= render "shared/header_settings_panel" %>
   </body>

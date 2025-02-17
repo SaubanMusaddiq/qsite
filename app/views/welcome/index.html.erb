@@ -1,7 +1,7 @@
 <% title "Home Page" %>
 <div id="site-banner">
 </div>
-<div id="header">
+<div id="header" class="home-header">
       <nav class="navbar navbar-default">
         <div class="container-fluid navbar-custom">
           <div class="navbar-header navbar-icon-left">
@@ -25,54 +25,29 @@
       </nav>
     </div>
 
-<div class="content-body container-fluid">
+<div class="content-body container-fluid content-welcome">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<h4 class="line-text"><span >ಅಧ್ಯಾಯಗಳು</span></h4>
-			<div class="row chapter-list">
-				<ul class="col-md-4 list-unstyled list-left">
-					<%@first_third_chapters.each do |chap|%>
+			<div class="chapter-list">
+				<ul class="list-unstyled">
+					<%@all_chapters.each do |chap|%>
 						<li>
 							<a href="/<%=chap.number%>" class="row chap-a">
 								<div class="row">
-									<div class="col-xs-1 chapter-num"><span><%=chap.number%></span></div>
-									<div class="col-xs-5"><span><%=chap.title_kn%></span></div>
-									<div class="col-xs-5 chap-ar"><span class="home-surah<%=chap.number%> home-surah"><%= chap.number.to_s.rjust(3, '0') %></span></div>
-								</div>
-								<div class="row">
-									<div class="col-xs-5 chap-tkn col-xs-offset-1"><span><%=chap.title_trans_kn%></span></div>
-								</div>
-							</a>
-						</li>
-					<%end%>
-				</ul>
-				<ul class="col-md-4 list-unstyled  list-right">
-					<%@second_third_chapters.each do |chap|%>
-						<li>
-							<a href="/<%=chap.number%>" class="row chap-a">
-								<div class="row">
-									<div class="col-xs-1 chapter-num"><span><%=chap.number%></span></div>
-									<div class="col-xs-5"><span><%=chap.title_kn%></span></div>
-									<div class="col-xs-5 chap-ar"><span class="home-surah<%=chap.number%> home-surah"><%= chap.number.to_s.rjust(3, '0') %></span></div>
-								</div>
-								<div class="row">
-									<div class="col-xs-5 chap-tkn col-xs-offset-1"><span><%=chap.title_trans_kn%></span></div>
-								</div>
-							</a>
-						</li>
-					<%end%>
-				</ul>
-				<ul class="col-md-4 list-unstyled  list-right">
-					<%@third_third_chapters.each do |chap|%>
-						<li>
-							<a href="/<%=chap.number%>" class="row chap-a">
-								<div class="row">
-									<div class="col-xs-1 chapter-num"><span><%=chap.number%></span></div>
-									<div class="col-xs-5"><span><%=chap.title_kn%></span></div>
-									<div class="col-xs-5 chap-ar"><span class="home-surah<%=chap.number%> home-surah"><%= chap.number.to_s.rjust(3, '0') %></span></div>
-								</div>
-								<div class="row">
-									<div class="col-xs-5 chap-tkn col-xs-offset-1"><span><%=chap.title_trans_kn%></span></div>
+									<div class="col-xs-2 chapter-num-p">
+										<div class="chapter-num"><div><%=chap.number%></div></div>
+									</div>
+									<div class="col-xs-6 col-md-5">
+										<div class="list-surah-kn"><span><%=chap.title_kn%><span></div>
+										<div><span class="home-surah<%=chap.number%> home-surah"><%= chap.number.to_s.rjust(3, '0') %>  surah</span></div>
+									</div>
+									<div class="col-xs-4 col-md-5 chap-desc">
+										<div class="title-eng">ಅವತೀರ್ಣ:  <%=chap.origin%></div>
+										<div class="title-eng">ಸೂಕ್ತಗಳು:  <%=chap.verse_count%></div>
+        						<div class="title-eng">ರುಕೂ‌ಗಳು: <%=chap.rukoo_count%></div>
+									</div>
+									<%# <div class="col-xs-1 chap-action"></div> %>
 								</div>
 							</a>
 						</li>

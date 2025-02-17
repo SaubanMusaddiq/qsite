@@ -1,7 +1,7 @@
 <div id="header-chapter-navigator">
-  <ul class="nav navbar-nav">
+  <ul id="hcn-ul" class="nav navbar-nav">
     <li class="dropdown">
-      <span style="font-size: 13px;">ಅಧ್ಯಾಯ: </span>
+      <span id="chapter-kan">ಅಧ್ಯಾಯ: </span>
       <a href="#" class="dropdown-toggle" id="chapter-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="title-dd" ><%= @chapter.title_kn%></span> <span class="caret"></span></a>
       <ul class="dropdown-menu chapter-dd">
         <%@all_chapters.each do |chap|%>
@@ -11,15 +11,11 @@
               <div class="col-xs-1 col-md-1">
                 <span class="chapter-num-header"><%=chap.number%></span>
               </div>
-              <div class="col-xs-4 col-md-4">
+              <div class="col-xs-6 col-md-6 kannada-tl-header-parent">
                 <span class="kannada-tl-header"><%=chap.title_kn%></span>
                 <br>
               </div>
-              <div class="col-xs-4  col-md-4">
-                <span class="kannada-ts-header"><%=chap.title_trans_kn%></span>
-                <br>
-              </div>
-              <div class="col-xs-3  col-md-3">
+              <div class="col-xs-5  col-md-5">
                 <span class="arabic-title-header"><%=chap.title_ar%></span>
               </div>
             </div>
@@ -33,9 +29,12 @@
         <a href="#" class="dropdown-toggle" id="verse-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ಸೂಕ್ತ<span class="caret"></span></a>
         <ul class="dropdown-menu verse-dd">
           <%@chapter.verse_ranges.each do |number_start, number_end|%>
-            <li class="verse-pointer"><a href="#verse-no-<%=number_start%>-<%=number_end%>"><%=number_start%> - <%=number_end%></a></li>
+            <li class="verse-pointer"><a class="verse-link" href="#verse-no-<%=number_start%>-<%=number_end%>"><%=number_start%> - <%=number_end%></a></li>
           <%end%>
         </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="" id="chapter-intro" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ಪರಿಚಯ</span></a>
       </li>
     <% end %>
   </ul>

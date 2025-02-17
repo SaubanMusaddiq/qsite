@@ -14,6 +14,15 @@
 
 @font-face
 {
+  font-family: 'Hafs';
+  font-style: normal;
+  font-weight: normal;
+  font-weight:400;
+   src: url('/arabic_fonts/Hafs.ttf') format('truetype');
+}
+
+@font-face
+{
   font-family: al_qalam_font2;
   font-style: normal;
   font-weight: normal;
@@ -145,6 +154,29 @@ body {
 
 .ayah-period{padding: 0 7px;}
 
+.ayah-period-1 {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: url(/images/vnum.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  line-height: 24px;
+  font-size: 14px;
+  border-radius: 50%; /* Ensures the image is circular */
+  position: relative;
+  top: -8px;
+  padding-top: 7px;
+  padding-left: 4px;
+  letter-spacing: -0.5px;
+   font-feature-settings: 'lnum' 0;
+    font-family: 'Arial', sans-serif;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  margin: 0 3px;
+}
+
 a {
     color: #090600;
     text-decoration: none;
@@ -160,7 +192,7 @@ a:hover{
   line-height: 200%;
   font-weight: normal;
   font-style: normal;
-  font-family: al_qalam_font, _PDMS_IslamicFont, Tahoma, Arial;
+  font-family: Hafs, _PDMS_IslamicFont, Tahoma, Arial;
   font-size: 32px;
   color: #555;
 }
@@ -182,8 +214,8 @@ a:hover{
 }
 .list-unstyled > li{
     min-height: 72.8px;
-        border: 1px solid #eceef0;
-    border-radius: 4px;
+    border: 1px solid #eed4af;
+    border-radius: 8px;
     padding: 10px 15px;
     margin-bottom: 10px;
     font-size: 16px;
@@ -205,12 +237,12 @@ a:hover{
 
 @media only screen and (min-width: 1250px) {
   .list-left {
-            padding-left: 85px;
+            padding-left: 60px;
         padding-right: 55px;
   }
   .list-right {
-            padding-left: 85px;
-        padding-right: 55px;
+            padding-left: 50px;
+        padding-right: 40px;
   }
 }
 @media only screen and (max-width: 1250px) {
@@ -254,23 +286,27 @@ margin: 0;
 #header .navbar-chapter{
   position: fixed;
   top: 10px;
+  min-height: 66px;
 }
 
 
 #header .navbar{
-  background-color: #86c3c8;
-  border-color: #7abfca;
+  background-color: #3d0000;
+  border-color: #3d000087;
   width: 100%;
   border-radius: 0;
   z-index: 9999;
   font-size: 19px;
+  min-height: 66px;
 }
+
+
 #header .navbar .navbar-nav>li>a,#header .navbar  .navbar-brand {
     padding: 3px;
-    color: #000000;
+    color: #fff;
 }
 #header .navbar .navbar-nav>li>a:hover,#header .navbar  .navbar-brand:hover{
-    color: #fff;
+    color: #d0aa75;
 }
 #header .chapter-dd{
     max-height: 420px;
@@ -278,28 +314,9 @@ margin: 0;
     overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    width: 420px;
+    width: 310px;
     font-size: 18px;
-}
-
-#header .chapter-dd a{
-  padding: 5px 20px;
-  font-size: 14px;
-  color: #000;
-  border-radius: 12px;
-  margin-top:10px ;
-}
-
-
-
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
-  background-color: #8dcbd4;
-}
-
-@media only screen and (max-width: 760px) {
-  #header .chapter-dd{
-      width: 100%;
-  }
+    margin-top: 12px;
 }
 
 #header .chapter-dd .row>div{
@@ -312,16 +329,108 @@ margin: 0;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     width: 50px;
+    margin-top: 12px;
 }
+
+
+#header .chapter-dd a, #header .verse-dd a{
+  padding: 5px 20px;
+  font-size: 16px;
+  color: #000;
+/*  border-radius: 12px;*/
+  margin-top:10px ;
+}
+
+.arabic-title-header{
+float: right;
+padding-right: 20px;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  background-color: #3d0000;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    background-color: #eed4b0;
+  }
+
+@media only screen and (max-width: 760px) {
+  #header .navbar-default{
+    min-height: 50px;
+  }
+  #header .navbar-chapter{
+    min-height: 58px;
+  }
+
+  #header .navbar-default .navbar-toggle{
+    margin-top: 6px;
+  }
+  #header .navbar-chapter .navbar-toggle{
+    margin-top: 13px;
+  }
+
+  #header .chapter-dd, #header .verse-dd{
+      width: 100%;
+  }
+  #header .chapter-dd a, #header .verse-dd a{
+    color: #fff;
+  }
+  #header .chapter-dd .active>a, #header .verse-dd .active>a{
+    color: #3d0000;
+  }
+
+  .dropdown-menu>.active>a{
+    background-color: #542d2e;
+  }
+  #header-chapter-navigator .dropdown{
+    border-top: 0.2px solid #e7e7e7;
+  }
+}
+
+.kannada-tl-header-parent{
+  padding-left: 21px;
+}
+
+/*----*/
+
+/*header-chapter-navigator*/
+
+#header-chapter-navigator{
+      margin-left: 15px;
+}
+
+#hcn-ul{
+  font-size: 21px;
+}
+
+@media only screen and (min-width: 760px) {
+  #hcn-ul{
+  margin: 7.5px -15px;
+      min-width: 480px;
+    padding-left: 61px;
+}
+  
+}
+
+
+.chapter-num-header{
+  font-size: 12px;
+}
+
+
+/**/
 
 #page-content{
   position: relative;
-/*  top: 50px;*/
-  padding-bottom: 65px;
+  top: -20px;
+  padding-bottom: 156px;
+}
+.content-welcome{
+margin-top: -34px;
 }
 
 .chapter-content{
-  padding-top: 50px;
+  padding-top: 71px;
 }
 
 @media only screen and (min-width: 1025px) {
@@ -355,25 +464,52 @@ margin: 0;
 
 
 .chapter-navigator{
-  margin-top: 50px;
+/*  margin-top: 64px;*/
     border: none;
-}
-
-
-@media only screen and (min-width: 760px) {
-  .chapter-navigator{
-  margin: 0 auto  !important;
-  position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
+}
+
+@media only screen and (max-width: 760px) {
+  .home-header .chapter-navigator{
+  margin: -9px auto  !important;
+ }
+ #navbar-collapse-content{
+  position: relative;
+  top:0;
+  left:0;
+  transform: none;
+ }
+ .home-header #chapter-kan{
+    padding-left: 28px;
+ }
 
 }
+
+
+@media only screen and (max-width: 480px) {
+/*  .home-header .chapter-navigator{
+  margin: -9px auto  !important;
+ }*/
+
+
+/* .home-header #navbar-collapse-content{
+  min-width: 280px;
+  margin: -3px  !important
+
+ }*/
+/*
+ .home-header #chapter-kan{
+    padding-left: 28px;
+ }*/
+
 }
 
 .chapter-num{
   font-size: 12px;
-  background-color: #d6ebec;
+  background-color: #eed4af;
 }
 
 
@@ -518,21 +654,26 @@ input:checked + .slider:before {
 }
 
 /*footer*/
-#footer {
 
+
+#footer {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  background-color: #86c4c8;
-  padding: 2% 0 1%;
+  background-color: #3d0000;
+  padding: 1% 6% 0 6%;
   font-size: 14px;
   margin-top: 50px;
+  color: #fff;
+  min-height: 180px;
+  margin: 0 0;
 }
+
 #footer .items{
   text-align: center;
-  padding-right: 30px;
+  padding-left: 0px;
 }
 #footer .items li{
   display: inline;
@@ -549,26 +690,165 @@ input:checked + .slider:before {
 #footer .items li>a{
     color: #fff;
     text-decoration: none;
-    padding: 25px;
 }
 #cp-right{
-  color: #000;
+  color: #fff;
   text-align: center;
-  font-size: 15px;
+  font-size: 10px;
 }
+.left-div {
+    text-align: left;
+    padding-left: 90px;
+}
+.center-div {
+    text-align: center;
+    padding-top: 160px;
+}
+
+#footer-logo{
+  width: auto;
+  height: 120px;
+}
+#footer .sp{
+  font-size: 28px;
+  font-weight: 600;
+}
+
+#footer .address{
+  font-size: 12px;
+  margin: 0 0 7px;
+}
+#footer-sp a{
+  display: block;
+    margin: 0 auto;
+    width: max-content;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  #footer-sp {
+      padding-top: 15px;
+    }
+    #footer  .row > div {
+        display: inline-block;
+        vertical-align: middle;
+        float: none; /* Prevent default Bootstrap float */
+    }
+    .left-div {
+/*        width: auto;*/
+padding-left: 70px;
+    }
+    .center-div {
+      padding-top: 30px;
+        width: 100%; /* Adjust width dynamically */
+    }
+    #footer-logo{
+      width: auto;
+      height: 100px;
+    }
+}
+
+@media only screen and (max-width: 912px) {
+    #footer-sp {
+      padding-top: 10px;
+    }
+    #footer .row > div {
+        display: inline-block;
+        vertical-align: middle;
+        float: none; /* Prevent default Bootstrap float */
+    }
+    .left-div {
+/*        width: auto;*/
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .center-div {
+      padding-top: 30px;
+        width: 100%; /* Adjust width dynamically */
+    }
+    #footer-logo{
+      width: auto;
+  height: 100px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    #footer .row > div {
+        display: inline-block;
+        vertical-align: middle;
+        float: none; /* Prevent default Bootstrap float */
+    }
+    .left-div {
+/*        width: auto;*/
+        padding-left: 20px;
+        padding-right: 0px;
+
+    }
+    .center-div {
+      width: 100%;
+        padding-top: 17px;
+    }
+    #footer-logo{
+      width: auto;
+      height: 90px;
+      padding-left: 14%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #footer .row > div {
+        display: inline-block;
+        vertical-align: middle;
+        float: none; /* Prevent default Bootstrap float */
+    }
+    .left-div {
+/*        width: auto;*/
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+
+/*End FOOTER*/
 
 #chapter-dropdown{
   display: inline-block; /* Ensure both elements are inline */
   vertical-align: middle; /* Align them vertically */
   margin-right: 20px;
+  color: #fff;
+  font-size: 22px;
 }
-#verse-dropdown{
-  margin-left: 55px;
+#chapter-dropdown:hover{
+  background-color: #3d0000;
+}
+#chapter-kan{
+  font-size: 18px;
+  color:#fff;
 }
 
-@media only screen and (min-width: 760px) {
+#verse-dropdown{
+  margin-left: 20px;
+  margin-top: 3px;
+}
+#chapter-intro{
+  margin-left: 25px;
+  margin-top: 3px;
+}
+
+@media only screen and (max-width: 760px) {
+  #chapter-dropdown{
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
   #verse-dropdown{
-    margin-left:10px;
+    padding-top: 12px !important;
+    margin-left: 75px;
+    padding-bottom: 12px !important;
+  }
+  #chapter-intro{
+    padding-top: 12px !important;
+    margin-left: 75px;
+    padding-bottom: 12x !important;
   }
 }
 
@@ -581,13 +861,13 @@ input:checked + .slider:before {
     cursor:pointer;
     width:56px;
     height:36px;
-    background-color:#d6ebec;
+    background-color:#eed4af;
     text-indent:-9999px;
     display:none;
     -webkit-border-radius:60px;
     -moz-border-radius:60px;
     border-radius:20px;
-    border: 2px solid #86c4c8
+    border: 2px solid #c09967
 }
 #back-to-top span {
     position:absolute;
@@ -598,13 +878,13 @@ input:checked + .slider:before {
     height:0;
     width:0;
     border:8px solid transparent;
-    border-bottom-color:#86c4c8;
+    border-bottom-color:#c09967;
 }
 #back-to-top:hover span{
   border-bottom-color:#fff;
 }
 #back-to-top:hover {
-    background-color:#86c4c8;
+    background-color:#c09967;
     opacity:1;filter:"alpha(opacity=100)";
     -ms-filter:"alpha(opacity=100)";
     border: 2px solid #33b6c0
@@ -685,14 +965,18 @@ input:checked + .slider:before {
 #navbar-button{
   margin-left: 25px;
   float: left;
+  background-color: #fff;
+}
+#navbar-button.collapsed{
+  background-color: #3d0000;
 }
 
 /*#navbar-button + a {
   display: none;
-}*/
-#navbar-button.collapsed + a {  /*header-logo-img*/
-  display: block;
 }
+#navbar-button.collapsed + a {
+  display: block;
+}*/
 
 
 @media only screen and (max-width: 1255px) {
@@ -744,9 +1028,9 @@ input:checked + .slider:before {
     -moz-background-size: 127% 78%;
     -o-background-size: 127% 78%;
     background-size: 127% 78%;
-    margin-bottom: -7.5%; 
+    margin-bottom: -8.5%; 
     position: sticky;
-    top: -137x;
+    top: -137px;
   }
   #chapter-banner {
     width:150%;
@@ -825,12 +1109,19 @@ input:checked + .slider:before {
     font-weight: bold;
 }
 /*-------Welcome Page------------------*/
+.chapter-list{
+  max-width: 855px;
+    display: block;
+    margin: 0 auto;
+}
+
 .chapter-list .chap-a{
   display: block;
-  padding: 10px;
+  padding: 14px;
 }
-.chapter-list .chap-ar{
-  font-size: 14px;
+.chapter-list .chap-desc{
+  font-size: 15px;
+  font-weight: 400;
 }
 .chapter-list .chap-ten{
   font-size: 10px;
@@ -843,6 +1134,21 @@ input:checked + .slider:before {
   position: absolute;
   right: 10px;
 }
+.chapter-list .chapter-num{
+  background: url(/images/verse_number.png) no-repeat;
+    background-size: auto;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chapter-list .chapter-num>div{
+  text-align: center;
+}
+
 icon-surah
 [class*=" icon-surah"], [class^=icon-surah] {
     font-family: surah_names_2!important;
@@ -866,17 +1172,56 @@ home-surah
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    font-size: 33px;
+    font-size: 30px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    float: right;
+/*    float: right;*/
 }
+
+.list-surah-kn {
+  font-weight: 400;
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-left: 7px;
+  border-right: 2px solid hsl(35.2, 64.9%, 81%);
+  
+/*  position: relative;
+  margin-right: 12px;
+  background: linear-gradient(to bottom, transparent 20%, #eed4af 40%, #eed4af 80%, transparent 80%);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+  background-size: 2px 100%;
+  background-position: right;
+  background-repeat: no-repeat;*/
+
+}
+.list-surah-verse{
+  border-right: 2px solid hsl(35.2, 64.9%, 81%);
+
+}
+
+.list-surah-origin{
+border-right: 2px solid hsl(35.2, 64.9%, 81%);
+}
+@media only screen and (max-width: 760px) {
+  .chapter-list .chap-desc {
+    padding: 0 5px;
+    font-size: 12px;
+  }
+  .chapter-list .chapter-num-p{
+    padding-left: 6px;
+  }
+}
+
 
 /*----------chapter page-------------*/
 #chapter-title{
   margin: 26px 20px 2px 20px;
 }
 #chapter-title .title-ar{
+  padding-top: 11px;
   text-align: center;
   font-weight: bold;
   font-size: 25px;
@@ -916,20 +1261,22 @@ home-surah
   margin-bottom: 14px;
   font-weight: 400;
   color: #333;
-  background-color: #d6ebec;
+  background-color: #eed4af;
   text-align: center;
+      max-width: 99px;
 }
-.note-number{
-      padding: 0.11em 1em;
-    font-size: 80%;
-    font-weight: 400;
-    color: #333;
-    background-color: #d6ebec;
-    text-align: center;
+
+@media (min-width: 1200px) and (max-width: 1560px) {
+    #chapter-verses .verse-no-col {
+        padding-right: 0  ;
+        padding-left: 0;
+    }
 }
+
+
 .note-link{
   font-size: 135%;
-    color: #38c0c9;
+    color: #1d8192;
 }
 
 @media (max-width: 767px){
@@ -950,6 +1297,7 @@ home-surah
   font-weight: 420;
   color: #000;
   padding-top: 1.5%;
+  padding-bottom: 1.5%;
 }
 
 #chapter-verses .verse-notes{
@@ -979,6 +1327,111 @@ text-align: center;
     from{   opacity: 1; }
     to{ opacity: 1; }
 }
+
+/*MODAL*/
+
+
+.modal_main_backdrop{
+
+  position:fixed;
+  top: calc(50% + 33px);
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  z-index: 999; /* Above overlay */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+/*  transform:translateY(4px);*/
+  -webkit-transition:0.3s;
+  transition:0.3s;
+  background: #fff;
+  width: 1000px;
+  max-width: 90%;
+  border-radius: 5px;
+}
+
+
+.modal_container_box{
+  width:100%;
+/*  max-width:700px;*/
+  min-height:250px;
+  background:var(--primary_background);
+  color:var(--primary_color);
+}
+
+
+.modal_main_backdrop.show{
+  opacity:1;
+  pointer-events:all;
+}
+
+
+.close_modal_tright{
+  font-size:2.1em;
+  font-weight:bold;
+  cursor:pointer;
+  position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 11px;
+}
+
+
+
+.modal_container_box > .main_contents_box{
+  min-height:100px;
+  /* border:solid red 1px; */
+  overflow-y:auto;
+  overflow-x:hidden;
+  max-height:90vh;
+  padding: 23px 19px
+}
+
+#main_contents_value{
+  font-size: 125%;
+    font-family: 'Noto-Sans-Kannada', Arial, Helvetica, sans-serif;
+    font-weight: 420;
+    color: #333;
+    padding: 10px;
+}
+#main_contents_number{
+      padding: 0.11em 1em;
+          margin-left: -7px;
+    font-size: 80%;
+    font-weight: 400;
+    color: #333;
+    background-color: #eed4af;
+    text-align: center;
+}
+
+#modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: none; /* Initially hidden */
+    z-index: 998;
+}
+
+
+.chapter-intro-header{
+  font-size: 28px;
+    font-weight: 600;
+    margin-top: -30px;
+    margin-bottom: 10px;
+}
+
+.ch-intro-sub{
+      font-size: 19px;
+    font-weight: 600;
+    margin-top: 10px;
+
+}
+
 
 /*
 .icon-surah1:before {content: "\E904";}

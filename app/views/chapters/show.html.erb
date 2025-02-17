@@ -11,7 +11,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <%= link_to image_tag("/images/dqlogo.png", border: 0, id: "header-logo-img"), "/" ,{class: "navbar-brand", "data-turbolinks": "false"} %>
+            <%= link_to image_tag("/images/dq_header_mini.png", border: 0, id: "header-logo-img"), "/" ,{class: "navbar-brand", "data-turbolinks": "false"} %>
           </div>
           
 
@@ -38,9 +38,9 @@
 		<% end %>
 		<div class="row" id="chapter-title">
 			<div class="col-xs-12 col-sm-2">
-        <div class="title-eng">ಅವತೀರ್ಣ:  ಮಕ್ಕಾ</div>
-				<div class="title-eng">ಸೂಕ್ತಗಳು:  6</div>
-        <div class="title-eng">ರುಕೂ‌ಗಳು: 1</div>
+        <div class="title-eng">ಅವತೀರ್ಣ:  <%=@chapter.origin%></div>
+				<div class="title-eng">ಸೂಕ್ತಗಳು:  <%=@chapter.verse_count%></div>
+        <div class="title-eng">ರುಕೂ‌ಗಳು: <%=@chapter.rukoo_count%></div>
 			</div>
 			<div class="col-xs-12 col-sm-8">
 				<!-- <div class="title-ar"><%=@chapter.title_ar%></div> -->
@@ -48,6 +48,7 @@
 				<div class="title-kn"><span style="font-size: 13px;"><%=@chapter.number%></span>.  <span><%=@chapter.title_kn%></span></div>
 			</div>
 		</div>
+
 
 		<div class="verses chapter-<%=@chapter.number%>" id="chapter-verses">
 			<%if (!@chapter.number.in?([1,9]))%>
@@ -61,34 +62,29 @@
 			<%@all_trans.each do |trans|%>
         <div class="verse-parent">
 				<div class="row" id="verse-no-<%=trans.number%>-<%=trans.number_end%>">
-					<div class="col-md-1 col-sm-1">
+					<div class="col-lg-1 col-md-2 verse-no-col">
 						<div class="verse-no"><%=@chapter.number%>:<%=trans.number%> - <%=trans.number_end%></div>
 					</div>
-					<div class="col-md-11 col-sm-11 verse">
+					<div class="col-lg-11 col-md-10 verse">
 						<div class="verse-content arabic">
-              <%= trans.verses_content %><span class="ayah-period">۞</span>
+              <%= trans.verses_content %>
+              <%# <span class='ayah-period-1'>#{start_number}</span> %>
 							<%# <span class="ayah-period">۞</span> %>
 							<!-- <span class="verse-number"></span> -->
 						</div>
 						<div class="verse-translation"><%= format_note_links(trans.content) %></div>
 					 </div>
 				</div>
-				
-				
-        <% if trans.notes.count > 0 %>
-        <div class="note row" id="notes-for-verse-<%=trans.number%>">
-          <div class="col-md-1 col-sm-1">
-          </div>
-          <div class="col-md-11 col-sm-11 note-parent">
-            <% trans.notes.each do |note|%>
-              <div class="verse-notes" id="note-no-<%=note.number%>">
-                <span class="note-number"><%= note.number %></span>
-                <span style="white-space: pre-wrap">&nbsp;&nbsp;&nbsp;&nbsp;<%=note.content %></span>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
+
+<!-- 
+ 					<% trans.notes.each do |note|%>
+            <div class="modal_contents_box" id="note-no-<%=note.number%>">
+              <span class="note-number"><%= note.number %></span>
+              <span style="white-space: pre-wrap">&nbsp;&nbsp;&nbsp;&nbsp;<%=note.content %></span>
+            </div>
+          <% end %> 
+				-->
+
         </div>
 			<%end%>
 		</div>
@@ -104,9 +100,73 @@
 </div>
 <span class="sharetastic"></span>
 </div>
+<div class="modal_main_backdrop" id="modal_1" inert > 
+	<div class="modal_container_box">
+		<div class="close_modal_tright" tabindex='1' onclick="closeModalContent()"> &times; </div>
+		
+		<!-- Modal Contents Container -->
+		<div class="main_contents_box">
+			  <span id="main_contents_number"></span>
+				<span id="main_contents_value"></span>
+		</div>
+	</div>
+</div>
+<div id="modal_overlay"></div>
 
 <script>
+var all_notes = {
+	<% @chapter.notes.each_with_index do |note, index| %>
+		"<%= note.number %>": "<%= note.content.gsub("\"", "'").gsub("\n", "<br>").html_safe %>"<%= ',' unless index == @chapter.notes.size - 1 %>
+	<% end %>
+};
+
 $(document).ready(function() {
+	let $modal = $("#modal_1");
+	let $overlay = $("#modal_overlay");
+	let $content = $("#main_contents_value");
+	let $number = $("#main_contents_number");
+
+  function showModalContent(id) {
+  	  $modal.css("display", "");
+      $overlay.fadeIn(200);
+      $content.html(all_notes[id]);
+      $number.html(id);
+      $number.show();
+
+      setTimeout(function () {
+          $modal.addClass("show").removeAttr("inert");
+      }, 100);
+  }
+
+  function showInfoContent() {
+  	  $modal.css("display", "");
+      $overlay.fadeIn(200);
+      $content.html("<p class='chapter-intro-header'>ಪರಿಚಯ - <%=@chapter.title_kn%></p><p class='chapter-intro-content'><%= @chapter.intro %></p>");
+      $number.hide();
+
+      setTimeout(function () {
+          $modal.addClass("show").removeAttr("inert");
+      }, 100);
+  }
+
+  function closeModalContent() {
+      $modal.removeClass("show").attr("inert", "");
+      $overlay.fadeOut(200); // Hide background overlay
+
+      setTimeout(function () {
+          $modal.css("display", "none");
+      }, 300);
+  }
+   window.showModalContent = showModalContent;
+   window.closeModalContent = closeModalContent;
+
+  $('#navbar-collapse-content').on('show.bs.collapse', function () {
+	 $('#header-logo-img').hide(); // Hide the image when navbar expands
+	});
+	$('#navbar-collapse-content').on('hidden.bs.collapse', function () {
+	  $('#header-logo-img').show(); // Show the image when navbar collapses
+	});
+
   $(window).scroll(function(){
       if ($(this).scrollTop() > 100) {
           $('#back-to-top').fadeIn();
@@ -124,8 +184,8 @@ $(document).ready(function() {
       return false;
   });
 
-  document.querySelectorAll('.note-link').forEach(link => {
-  link.addEventListener('click', function(e) {
+  document.querySelectorAll('.verse-link').forEach(link => {
+  link.addEventListener('click', function(e)	 {
     e.preventDefault();  // Prevent the default anchor behavior
 
     const target = $(this.getAttribute('href'));
@@ -139,6 +199,11 @@ $(document).ready(function() {
     }
   });
   });
+
+	 $("#chapter-intro").on("click", function() {
+    $(".navbar-collapse").collapse("hide");
+    showInfoContent();
+	});
 
   $(".verse-btn-share").on("click",function(){
     if($(this).children().length>0){
