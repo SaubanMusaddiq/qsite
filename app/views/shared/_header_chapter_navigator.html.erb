@@ -26,16 +26,17 @@
     </li>
     <% if @show_verses_in_nav%>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" id="verse-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ಸೂಕ್ತ<span class="caret"></span></a>
+        <a href="#" class="" id="chapter-intro" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ಪರಿಚಯ</span></a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" id="verse-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ಸೂಕ್ತಗಳು<span class="caret"></span></a>
         <ul class="dropdown-menu verse-dd">
           <%@chapter.verse_ranges.each do |number_start, number_end|%>
             <li class="verse-pointer"><a class="verse-link" href="#verse-no-<%=number_start%>-<%=number_end%>"><%=number_start%> - <%=number_end%></a></li>
           <%end%>
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="#" class="" id="chapter-intro" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ಪರಿಚಯ</span></a>
-      </li>
+      
     <% end %>
   </ul>
 </div>

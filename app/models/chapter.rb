@@ -53,7 +53,17 @@ class Chapter < ApplicationRecord
 	end
 
 	def intro
-		self.info.gsub("$\n$","$\n\n$").gsub("\n$", "<p class='ch-intro-sub'>").gsub("$\n", "</p>").gsub("\n","</br>").html_safe
+		intro = self.info.gsub("$\n$","$\n\n$").gsub("\n$", "<p class='ch-intro-sub'>").gsub("$\n", "</p>").gsub("\n","</br>")
+		wrapped_html = intro.gsub(/(?<!sub')>([^<]+)</) do
+		  text = $1
+		  # Only wrap if the text is not just whitespace
+		  if text.strip.empty?
+		    ">" + text + "<"
+		  else
+		    "><p>#{text.strip}</p><"
+		  end
+		end
+		wrapped_html.html_safe
 	end	
 
 	# def self.first_half

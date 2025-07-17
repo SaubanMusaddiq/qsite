@@ -93,7 +93,7 @@
   @font-face{
   font-family: surah_names_2;
   src:url('/arabic_fonts/sura_names.woff2') format("woff2");
-  font-weight:400;font-style:normal
+  font-weight:400;fonvt-style:normal
   }
 
 
@@ -195,6 +195,7 @@ a:hover{
   font-family: Hafs, _PDMS_IslamicFont, Tahoma, Arial;
   font-size: 32px;
   color: #555;
+  text-align: justify;
 }
 
 .verse-number{
@@ -698,11 +699,11 @@ input:checked + .slider:before {
 }
 .left-div {
     text-align: left;
-    padding-left: 90px;
+/*    padding-left: 90px;*/
 }
 .center-div {
     text-align: center;
-    padding-top: 160px;
+    padding-top: 20px;
 }
 
 #footer-logo{
@@ -1217,8 +1218,13 @@ border-right: 2px solid hsl(35.2, 64.9%, 81%);
 
 
 /*----------chapter page-------------*/
+#chapter-detail{
+  margin-top: 30px; 
+      font-size: 14px;
+}
+
 #chapter-title{
-  margin: 26px 20px 2px 20px;
+  margin: -6px 20px 2px 20px;
 }
 #chapter-title .title-ar{
   padding-top: 11px;
@@ -1257,7 +1263,7 @@ border-right: 2px solid hsl(35.2, 64.9%, 81%);
 
 #chapter-verses .verse-no{
   display: block;
-  padding: 0.11em 1em;
+  padding: 0.11em 0em;
   margin-bottom: 14px;
   font-weight: 400;
   color: #333;
@@ -1276,7 +1282,8 @@ border-right: 2px solid hsl(35.2, 64.9%, 81%);
 
 .note-link{
   font-size: 135%;
-    color: #1d8192;
+    color: #3d0000;
+    cursor: grab;
 }
 
 @media (max-width: 767px){
@@ -1298,6 +1305,7 @@ border-right: 2px solid hsl(35.2, 64.9%, 81%);
   color: #000;
   padding-top: 1.5%;
   padding-bottom: 1.5%;
+  text-align: justify;
 }
 
 #chapter-verses .verse-notes{
@@ -1395,6 +1403,7 @@ text-align: center;
     font-weight: 420;
     color: #333;
     padding: 10px;
+        text-align: justify;
 }
 #main_contents_number{
       padding: 0.11em 1em;
@@ -1432,6 +1441,9 @@ text-align: center;
 
 }
 
+.title-detail{
+  padding: 0 4px;
+}
 
 /*
 .icon-surah1:before {content: "\E904";}
