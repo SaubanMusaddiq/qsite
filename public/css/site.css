@@ -185,6 +185,8 @@ a:hover{
     color: #c19967;
     text-decoration: none;
 }
+/* # _PDMS_IslamicFont, Hafs, al_qalam_font2, indo_pak_font1, indo_pak_font2, al_qalam_font, al_qalam_font1, al_qalam_quran_font, uthmani, surah_names, surah_names_2, bismillah  */
+
 .arabic{
   Direction: RTL;
   margin: 0px 0px 0px 0px;
@@ -192,7 +194,7 @@ a:hover{
   line-height: 200%;
   font-weight: normal;
   font-style: normal;
-  font-family: Hafs, _PDMS_IslamicFont, Tahoma, Arial;
+  font-family: al_qalam_font2, uthmani, Arial;
   font-size: 32px;
   color: #555;
   text-align: justify;
@@ -1281,7 +1283,7 @@ border-right: 2px solid hsl(35.2, 64.9%, 81%);
 
 
 .note-link{
-  font-size: 135%;
+  font-size: 115%;
     color: #3d0000;
     cursor: grab;
 }
@@ -1299,7 +1301,7 @@ border-right: 2px solid hsl(35.2, 64.9%, 81%);
 }
 
 #chapter-verses .verse-translation{
-  font-size: 145%;
+  font-size: 157%;
   font-family: 'Baloo Tamma 2',cursive;
   font-weight: 420;
   color: #000;
